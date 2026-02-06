@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Techno Wizards | FLL Team</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background: #e8f0ff;
+      color: #02275d;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0147b4, #012f7a);
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      letter-spacing: 3px;
+    }
+
+    nav {
+      background: #013a94;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #a8d0ff;
+    }
+
+    /* FIX: offset for sticky nav */
+    section {
+      scroll-margin-top: 90px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      color: #0147b4;
+      font-size: 2.3em;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 35px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+
+    .member {
+      background: #f5f9ff;
+      border-radius: 12px;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+
+    .member:hover {
+      transform: translateY(-6px);
+    }
+
+    .member img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* PROJECT */
+    .project-list {
+      text-align: left;
+      margin-top: 20px;
+      font-size: 1.05em;
+    }
+
+    .project-list li {
+      margin: 12px 0;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, #0147b4, #013a94);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    footer {
+      background: #0147b4;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Techno Wizards</h1>
+  <p>FIRST LEGO League Robotics Team</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#team">Team</a>
+  <a href="#project">Project</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Us</h2>
+  <div class="card">
+    <p>
+      We are <strong>Techno Wizards</strong>, a FIRST LEGO League team with
+      <strong>8 passionate members</strong>. We design, build, and program robots
+      to solve real-world problems.
+    </p>
+  </div>
+</section>
+
+<section id="team">
+  <h2>Meet the Team</h2>
+  <div class="team-grid">
+    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 1</p></div>
+    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 2</p></div>
+    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 3</p></div>
+    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 4</p></div>
+    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 5</p></div>
+    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 6</p></div>
+    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 7</p></div>
+    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 8</p></div>
+  </div>
+</section>
+
+<section id="project">
+  <h2>Innovation Project</h2>
+  <div class="card">
+    <h3>LiDAR Cave Exploration Robot</h3>
+    <p>
+      Our robot is designed to safely explore underground caves using
+      <strong>LiDAR sensors</strong>. It navigates autonomously and builds
+      detailed 3D maps in complete darkness.
+    </p>
+
+    <ul class="project-list">
+      <li>✔ LiDAR-based environment scanning</li>
+      <li>✔ Autonomous obstacle avoidance</li>
+      <li>✔ 3D cave mapping</li>
+      <li>✔ Supports scientists and rescue teams</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>📧 Email</h3>
+      <p>technowizardsfll@example.com</p>
+    </div>
+    <div class="contact-card">
+      <h3>🌐 Social Media</h3>
+      <p>@TechnoWizardsFLL</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 Techno Wizards FLL Team</p>
+</footer>
+
+</body>
+</html>
