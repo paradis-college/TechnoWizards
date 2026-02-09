@@ -52,7 +52,6 @@
       color: #a8d0ff;
     }
 
-    /* FIX: offset for sticky nav */
     section {
       scroll-margin-top: 90px;
       max-width: 1100px;
@@ -85,6 +84,7 @@
       background: #f5f9ff;
       border-radius: 12px;
       padding: 15px;
+      cursor: pointer;
       transition: transform 0.3s;
     }
 
@@ -96,6 +96,13 @@
       width: 100%;
       border-radius: 10px;
       margin-bottom: 10px;
+    }
+
+    .role {
+      display: none;
+      margin-top: 8px;
+      font-size: 0.95em;
+      color: #013a94;
     }
 
     /* PROJECT */
@@ -160,14 +167,55 @@
 <section id="team">
   <h2>Meet the Team</h2>
   <div class="team-grid">
-    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 1</p></div>
-    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 2</p></div>
-    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 3</p></div>
-    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 4</p></div>
-    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 5</p></div>
-    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 6</p></div>
-    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 7</p></div>
-    <div class="member"><img src="https://via.placeholder.com/200"><p>Member 8</p></div>
+
+    <div class="member" onclick="toggleRole(this)">
+      <img src="https://via.placeholder.com/200" alt="Ilinca Olaru">
+      <p><strong>Ilinca Olaru</strong></p>
+      <p class="role">👑 Team Leader</p>
+    </div>
+
+    <div class="member" onclick="toggleRole(this)">
+      <img src="https://via.placeholder.com/200" alt="Maria Parasca">
+      <p><strong>Maria Parasca</strong></p>
+      <p class="role">💻 Coder & 🛠 Builder</p>
+    </div>
+
+    <div class="member" onclick="toggleRole(this)">
+      <img src="https://via.placeholder.com/200" alt="Elisabeta Bura">
+      <p><strong>Elisabeta Bura</strong></p>
+      <p class="role">💻 Coder & 📊 Project Manager</p>
+    </div>
+
+    <div class="member" onclick="toggleRole(this)">
+      <img src="https://via.placeholder.com/200" alt="Alexia Diaconita">
+      <p><strong>Alexia Diaconita</strong></p>
+      <p class="role">📊 Project Manager & 🎯 Mission Strategist</p>
+    </div>
+
+    <div class="member" onclick="toggleRole(this)">
+      <img src="https://via.placeholder.com/200" alt="David Hriticu">
+      <p><strong>David Hriticu</strong></p>
+      <p class="role">🛠 Builder & 🔍 Researcher</p>
+    </div>
+
+    <div class="member" onclick="toggleRole(this)">
+      <img src="https://via.placeholder.com/200" alt="Eduard Grigoruta">
+      <p><strong>Eduard Grigoruta</strong></p>
+      <p class="role">💻 Coder & 🎯 Mission Strategist</p>
+    </div>
+
+    <div class="member" onclick="toggleRole(this)">
+      <img src="https://via.placeholder.com/200" alt="Rares Mazilu">
+      <p><strong>Rares Mazilu</strong></p>
+      <p class="role">💻 Coder & 🛠 Builder</p>
+    </div>
+
+    <div class="member" onclick="toggleRole(this)">
+      <img src="https://via.placeholder.com/200" alt="Alexandru Bucataru">
+      <p><strong>Alexandru Bucataru</strong></p>
+      <p class="role">🔍 Researcher & 💻 Coder</p>
+    </div>
+
   </div>
 </section>
 
@@ -199,7 +247,7 @@
     </div>
     <div class="contact-card">
       <h3>🌐 Social Media</h3>
-      <p>@TechnoWizardsFLL</p>
+      <p>@technowizards24(instragram)</p>
     </div>
   </div>
 </section>
@@ -207,6 +255,13 @@
 <footer>
   <p>© 2024 Techno Wizards FLL Team</p>
 </footer>
+
+<script>
+  function toggleRole(card) {
+    const role = card.querySelector(".role");
+    role.style.display = role.style.display === "block" ? "none" : "block";
+  }
+</script>
 
 </body>
 </html>
