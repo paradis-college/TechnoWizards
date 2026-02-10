@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Innovation Project | Techno Wizards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/project.css">
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+</head>
+
+<body>
+
+<nav class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="team.html">Team</a>
+  <a href="project.html" class="active">Project</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="project-hero">
+  <h1>LiDAR Cave Exploration Robot</h1>
+  <p>Visualizing how our robot sees and understands the underground world</p>
+</section>
+
+<section class="project-section">
+  <div class="project-text">
+    <h2>📡 LiDAR Scanning</h2>
+    <p>
+      Our robot uses <strong>LiDAR sensors</strong> to emit laser rays in multiple
+      directions. Each ray measures the distance to nearby obstacles, allowing the
+      robot to detect walls even in complete darkness.
+    </p>
+    <p class="hint">Move your mouse to simulate robot rotation</p>
+  </div>
+
+  <div id="lidar-canvas"></div>
+</section>
+
+<section class="project-section reverse">
+  <div class="project-text">
+    <h2>🧭 Autonomous Navigation</h2>
+    <p>
+      Based on LiDAR data, the robot calculates free paths and avoids collisions.
+      The robot prioritizes open space and dynamically adjusts its direction.
+    </p>
+  </div>
+
+  <div id="nav-canvas"></div>
+</section>
+
+<script src="assets/js/lidar.js"></script>
+<script src="assets/js/navigation.js"></script>
+
+</body>
+</html>

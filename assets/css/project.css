@@ -1,0 +1,46 @@
+.project-hero {
+  padding: 140px 20px 80px;
+  text-align: center;
+}
+
+.project-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.project-section.reverse {
+  direction: rtl;
+}
+
+.project-section.reverse > * {
+  direction: ltr;
+}
+
+.project-text {
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+
+.project-text h2 {
+  color: #00b3ff;
+  margin-bottom: 15px;
+}
+
+.hint {
+  margin-top: 10px;
+  opacity: 0.7;
+  font-size: 0.9em;
+}
+
+#lidar-canvas,
+#nav-canvas {
+  background: rgba(0,0,0,0.3);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,179,255,0.4);
+  padding: 10px;
+}

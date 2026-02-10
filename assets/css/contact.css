@@ -1,0 +1,19 @@
+.contact {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.contact-grid {
+  max-width: 800px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.contact-card {
+  background: linear-gradient(135deg, #0147b4, #013a94);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,179,255,0.4);
+}
