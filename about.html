@@ -21,7 +21,7 @@
 </nav>
 
 <section class="about-hero">
-  <h1>Who Are the Techno Wizards?</h1>
+  <h1>🧙‍♂️ Who Are the Techno Wizards? 🤖</h1>
   <p>We turn ideas into robots and challenges into innovation.</p>
 </section>
 
@@ -39,23 +39,133 @@
     <h2>⚙ FIRST LEGO League</h2>
     <p>
       FIRST LEGO League combines robotics, research, and innovation to help students
-      develop critical thinking, collaboration, and technical skills.
+      develop critical thinking, collaboration, and technical skills. We compete in
+      challenges that test our engineering, programming, and problem-solving abilities.
     </p>
+  </div>
+
+  <div class="about-card expandable">
+    <h2>🔬 Our Approach <span class="expand-icon">+</span></h2>
+    <p class="preview">Click to discover our methodology...</p>
+    <div class="hidden-content">
+      <p>
+        <strong>Research & Innovation:</strong> We dive deep into real-world problems,
+        researching historical and modern solutions to create innovative approaches.
+      </p>
+      <p>
+        <strong>Robot Engineering:</strong> We design, build, and program autonomous
+        robots using LEGO SPIKE Prime, combining mechanical design with advanced coding.
+      </p>
+      <p>
+        <strong>Team Collaboration:</strong> Every member brings unique skills - from
+        coding and building to strategy and presentation - working together as a cohesive unit.
+      </p>
+    </div>
+  </div>
+
+  <div class="about-card expandable">
+    <h2>🏆 Competition Elements <span class="expand-icon">+</span></h2>
+    <p class="preview">Learn how we compete...</p>
+    <div class="hidden-content">
+      <p>
+        <strong>Robot Game:</strong> Autonomous robot completing themed missions on a competition mat.
+      </p>
+      <p>
+        <strong>Innovation Project:</strong> Research and solve real problems with creative solutions.
+      </p>
+      <p>
+        <strong>Robot Design:</strong> Explain our engineering choices and programming strategies.
+      </p>
+      <p>
+        <strong>Core Values:</strong> Demonstrate teamwork, respect, and gracious professionalism.
+      </p>
+    </div>
   </div>
 </section>
 
 <section class="values">
   <h2>🌟 Our Core Values</h2>
+  <p class="values-subtitle">Click each value to learn more about our team!</p>
 
   <div class="values-grid">
-    <div class="value">🤝 Teamwork</div>
-    <div class="value">💡 Innovation</div>
-    <div class="value">📚 Learning</div>
-    <div class="value">⚖ Gracious Professionalism</div>
-    <div class="value">🚀 Impact</div>
+    <div class="value" data-value="teamwork">
+      <div class="value-front">
+        <span class="value-icon">🤝</span>
+        <span class="value-label">Teamwork</span>
+      </div>
+      <div class="value-back">
+        <p><strong>Together We Achieve More</strong></p>
+        <p>Our team meets weekly, brainstorms solutions, and supports each other. Every voice matters!</p>
+      </div>
+    </div>
+
+    <div class="value" data-value="innovation">
+      <div class="value-front">
+        <span class="value-icon">💡</span>
+        <span class="value-label">Innovation</span>
+      </div>
+      <div class="value-back">
+        <p><strong>Creative Problem Solving</strong></p>
+        <p>We think outside the box, combining magic and technology to create unique robot solutions.</p>
+      </div>
+    </div>
+
+    <div class="value" data-value="learning">
+      <div class="value-front">
+        <span class="value-icon">📚</span>
+        <span class="value-label">Learning</span>
+      </div>
+      <div class="value-back">
+        <p><strong>Continuous Growth</strong></p>
+        <p>Every challenge is a learning opportunity. We research, experiment, and improve constantly.</p>
+      </div>
+    </div>
+
+    <div class="value" data-value="professionalism">
+      <div class="value-front">
+        <span class="value-icon">⚖</span>
+        <span class="value-label">Gracious Professionalism</span>
+      </div>
+      <div class="value-back">
+        <p><strong>Respect & Integrity</strong></p>
+        <p>We compete fiercely but treat all teams with kindness and respect, celebrating everyone's success.</p>
+      </div>
+    </div>
+
+    <div class="value" data-value="impact">
+      <div class="value-front">
+        <span class="value-icon">🚀</span>
+        <span class="value-label">Impact</span>
+      </div>
+      <div class="value-back">
+        <p><strong>Making a Difference</strong></p>
+        <p>Our projects aim to solve real problems and positively impact our community and beyond.</p>
+      </div>
+    </div>
+
+    <div class="value" data-value="fun">
+      <div class="value-front">
+        <span class="value-icon">🎉</span>
+        <span class="value-label">Fun</span>
+      </div>
+      <div class="value-back">
+        <p><strong>Joy in Discovery</strong></p>
+        <p>We love what we do! Robotics is exciting, and we celebrate every milestone with enthusiasm.</p>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- Popup Modal -->
+<div id="valueModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+  </div>
+</div>
+
 <script src="assets/js/scroll.js"></script>
+<script src="assets/js/about.js"></script>
 </body>
 </html>

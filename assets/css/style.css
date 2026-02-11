@@ -36,7 +36,7 @@ body {
   font-family: 'Orbitron', sans-serif;
   background: radial-gradient(circle at top, #0b1c3a, #020814);
   color: white;
-  overflow-x: hidden; /* allow vertical scrolling */
+  overflow-x: hidden;
 }
 
 /* CANVAS */
@@ -63,7 +63,8 @@ body {
   text-shadow:
     0 0 10px #00b3ff,
     0 0 20px #0077ff,
-    0 0 40px #0055ff;
+    0 0 40px #0055ff,
+    0 0 60px #a855f7;
   animation: pulse 3s infinite;
 }
 
@@ -71,56 +72,96 @@ body {
   margin-top: 15px;
   font-size: 1.3em;
   opacity: 0.85;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
 
-/* BUTTONS */
+/* ENHANCED BUTTONS */
 .hero-buttons {
   margin-top: 40px;
   display: flex;
   gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero-buttons a {
-  padding: 15px 30px;
-  border-radius: 30px;
+  padding: 18px 35px;
+  border-radius: 35px;
   text-decoration: none;
   color: white;
+  font-weight: 600;
+  font-size: 1.05em;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00b3ff, #0077ff);
   border: 2px solid #00b3ff;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(0,179,255,0.4);
+  box-shadow: 
+    0 0 20px rgba(0, 179, 255, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
-.hero-buttons a:hover {
-  background: #00b3ff;
-  color: #020814;
-  box-shadow: 0 0 25px #00b3ff;
+.btn-primary:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 0 40px rgba(0, 179, 255, 0.8),
+    0 10px 30px rgba(0, 179, 255, 0.4),
+    inset 0 0 30px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-.secondary {
-  border-color: #a855f7;
+.btn-secondary {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  border: 2px solid #a855f7;
+  box-shadow: 
+    0 0 20px rgba(168, 85, 247, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
-.secondary:hover {
-  background: #a855f7;
-  box-shadow: 0 0 25px #a855f7;
+.btn-secondary:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 0 40px rgba(168, 85, 247, 0.8),
+    0 10px 30px rgba(168, 85, 247, 0.4),
+    inset 0 0 30px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-/* SCROLL */
-.scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  font-size: 0.9em;
-  opacity: 0.7;
-  animation: float 2s infinite;
+.btn-icon {
+  font-size: 1.3em;
+  animation: float 2s infinite ease-in-out;
+}
+
+.btn-primary:hover .btn-icon {
+  animation: spin 1s linear infinite;
+}
+
+.btn-secondary:hover .btn-icon {
+  animation: pulse 0.5s ease-in-out infinite;
 }
 
 /* ANIMATIONS */
 @keyframes pulse {
-  0%, 100% { text-shadow: 0 0 10px #00b3ff; }
-  50% { text-shadow: 0 0 30px #00b3ff; }
+  0%, 100% { 
+    text-shadow: 0 0 10px #00b3ff, 0 0 20px #a855f7; 
+  }
+  50% { 
+    text-shadow: 0 0 30px #00b3ff, 0 0 50px #a855f7, 0 0 70px #a855f7; 
+  }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
