@@ -29,18 +29,201 @@
 .project-text h2 {
   color: #00b3ff;
   margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
 }
 
 .hint {
-  margin-top: 10px;
-  opacity: 0.7;
-  font-size: 0.9em;
+  margin-top: 15px;
+  opacity: 0.8;
+  font-size: 0.95em;
+  color: #a855f7;
+  font-style: italic;
 }
 
 #lidar-canvas,
 #nav-canvas {
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.4);
   border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0,179,255,0.4);
+  box-shadow: 
+    0 0 30px rgba(0,179,255,0.4),
+    inset 0 0 50px rgba(168, 85, 247, 0.1);
   padding: 10px;
+  border: 2px solid rgba(0, 179, 255, 0.3);
+}
+
+/* FLL Challenge Section */
+.challenge-section {
+  background: linear-gradient(180deg, rgba(11, 28, 58, 0.5), rgba(2, 8, 20, 0.8));
+  padding: 80px 20px;
+  margin: 40px 0;
+  border-top: 2px solid rgba(0, 179, 255, 0.3);
+  border-bottom: 2px solid rgba(168, 85, 247, 0.3);
+}
+
+.challenge-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.challenge-container h2 {
+  font-size: 2.5em;
+  color: #00b3ff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(0, 179, 255, 0.5);
+}
+
+.challenge-tagline {
+  font-size: 1.3em;
+  color: #a855f7;
+  font-style: italic;
+  margin-bottom: 50px;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.challenge-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  transition: all 0.4s ease;
+  text-align: left;
+}
+
+.challenge-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 179, 255, 0.6);
+  box-shadow: 
+    0 0 40px rgba(0, 179, 255, 0.4),
+    0 0 60px rgba(168, 85, 247, 0.2);
+}
+
+.challenge-icon {
+  font-size: 3em;
+  margin-bottom: 15px;
+  text-align: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.challenge-card h3 {
+  color: #00b3ff;
+  margin-bottom: 15px;
+  font-size: 1.4em;
+}
+
+.challenge-card p {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Mission Strategy Section */
+.missions-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.missions-section h2 {
+  font-size: 2.5em;
+  color: #a855f7;
+  margin-bottom: 50px;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.missions-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.mission-card {
+  background: linear-gradient(135deg, rgba(0, 119, 255, 0.1), rgba(168, 85, 247, 0.1));
+  padding: 35px;
+  border-radius: 20px;
+  border: 2px solid rgba(0, 179, 255, 0.3);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(168, 85, 247, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.mission-card:hover::before {
+  left: 100%;
+}
+
+.mission-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 
+    0 0 40px rgba(168, 85, 247, 0.5),
+    0 10px 30px rgba(0, 179, 255, 0.3);
+}
+
+.mission-card h3 {
+  color: #a855f7;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  position: relative;
+  z-index: 1;
+}
+
+.mission-card p {
+  line-height: 1.6;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .project-section.reverse {
+    direction: ltr;
+  }
+  
+  .challenge-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  #lidar-canvas,
+  #nav-canvas {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }

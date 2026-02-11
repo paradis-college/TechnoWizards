@@ -1,19 +1,272 @@
 .contact {
   padding: 120px 20px;
   text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-subtitle {
+  margin-top: 15px;
+  font-size: 1.1em;
+  opacity: 0.8;
+  color: #a855f7;
+  margin-bottom: 60px;
 }
 
 .contact-grid {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 60px auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
 }
 
 .contact-card {
-  background: linear-gradient(135deg, #0147b4, #013a94);
-  padding: 40px;
+  background: linear-gradient(135deg, rgba(1, 71, 180, 0.3), rgba(1, 58, 148, 0.3));
+  padding: 35px;
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(0,179,255,0.4);
+  border: 2px solid rgba(0, 179, 255, 0.3);
+  transition: all 0.4s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168, 85, 247, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.contact-card:hover::before {
+  left: 100%;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 0 50px rgba(0,179,255,0.6),
+    0 10px 40px rgba(168, 85, 247, 0.3);
+  border-color: rgba(168, 85, 247, 0.6);
+}
+
+.contact-icon {
+  font-size: 3.5em;
+  margin-bottom: 15px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.contact-card h2 {
+  color: #00b3ff;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  text-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
+}
+
+.contact-detail {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.contact-link {
+  color: #00b3ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(0, 179, 255, 0.1);
+}
+
+.contact-link:hover {
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.2);
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.social-link {
+  padding: 10px 15px;
+  background: rgba(0, 179, 255, 0.15);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(168, 85, 247, 0.25);
+  transform: translateX(10px);
+}
+
+.contact-description {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  border-left: 3px solid #a855f7;
+}
+
+.contact-description h4 {
+  color: #a855f7;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.contact-description ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.contact-description li {
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.contact-description li::before {
+  content: '✨';
+  position: absolute;
+  left: 0;
+}
+
+.response-time {
+  margin-top: 15px;
+  font-size: 0.9em;
+  opacity: 0.8;
+  font-style: italic;
+  color: #a855f7;
+}
+
+/* Workflow Section */
+.contact-workflow {
+  margin-top: 80px;
+  padding: 60px 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 25px;
+  border: 2px solid rgba(168, 85, 247, 0.3);
+}
+
+.contact-workflow h2 {
+  color: #a855f7;
+  margin-bottom: 50px;
+  font-size: 2em;
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+.workflow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.workflow-step {
+  background: linear-gradient(135deg, rgba(0, 119, 255, 0.2), rgba(168, 85, 247, 0.2));
+  padding: 30px;
+  border-radius: 15px;
+  min-width: 200px;
+  max-width: 220px;
+  border: 2px solid rgba(0, 179, 255, 0.4);
+  transition: all 0.4s ease;
+}
+
+.workflow-step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(0, 179, 255, 0.5);
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #00b3ff, #a855f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0 auto 15px;
+  box-shadow: 0 0 20px rgba(0, 179, 255, 0.6);
+}
+
+.workflow-step h3 {
+  color: #00b3ff;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.workflow-step p {
+  font-size: 0.95em;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.workflow-arrow {
+  font-size: 2em;
+  color: #a855f7;
+  font-weight: bold;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .workflow-steps {
+    flex-direction: column;
+  }
+  
+  .workflow-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 25px;
+  }
+  
+  .workflow-step {
+    min-width: 100%;
+  }
 }
