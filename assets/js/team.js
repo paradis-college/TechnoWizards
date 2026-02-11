@@ -217,7 +217,7 @@ function showMemberDetails(member) {
   document.getElementById('modalRole').textContent = member.role;
   document.getElementById('modalImage').src = member.image;
   document.getElementById('modalImage').onerror = function() {
-    this.src = `https://via.placeholder.com/150/0077ff/ffffff?text=${member.name.split(' ')[0]}`;
+    this.src = `https://via.placeholder.com/300/0077ff/ffffff?text=${member.name.split(' ')[0]}`;
   };
   
   // Activities

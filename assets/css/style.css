@@ -146,22 +146,4 @@ body {
   animation: pulse 0.5s ease-in-out infinite;
 }
 
-/* ANIMATIONS */
-@keyframes pulse {
-  0%, 100% { 
-    text-shadow: 0 0 10px #00b3ff, 0 0 20px #a855f7; 
-  }
-  50% { 
-    text-shadow: 0 0 30px #00b3ff, 0 0 50px #a855f7, 0 0 70px #a855f7; 
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+/* Animations are now in animations.css */

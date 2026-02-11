@@ -210,8 +210,8 @@ function updateBot() {
       
       // Smooth angle interpolation
       let angleDiff = bot.targetAngle - bot.angle;
-      while (angleDiff > PI) angleDiff -= TWO_PI;
-      while (angleDiff < -PI) angleDiff += TWO_PI;
+      // Normalize angle difference to [-PI, PI]
+      angleDiff = ((angleDiff + PI) % TWO_PI + TWO_PI) % TWO_PI - PI;
       bot.angle += angleDiff * 0.1;
       
       // Move forward

@@ -114,17 +114,6 @@
   pointer-events: none;
 }
 
-@keyframes sparkle {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.5) rotate(180deg);
-    opacity: 1;
-  }
-}
-
 /* Modal Styles */
 .modal {
   display: none;
@@ -161,17 +150,6 @@
   overflow: hidden;
 }
 
-@keyframes modalSlideIn {
-  from {
-    transform: translateY(-100px) scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
 .modal-content::before {
   content: '';
   position: absolute;
@@ -182,11 +160,6 @@
   background: linear-gradient(90deg, #00b3ff, #a855f7, #00b3ff);
   background-size: 200% 100%;
   animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 .close {
@@ -307,20 +280,6 @@
   animation: particleFloat 0.8s ease-out forwards;
   box-shadow: 0 0 10px rgba(0, 179, 255, 0.8);
   z-index: 9999;
-}
-
-@keyframes particleFloat {
-  0% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(
-      calc(var(--vx) * 60px),
-      calc(var(--vy) * 60px)
-    ) scale(0);
-  }
 }
 
 /* Responsive design */
