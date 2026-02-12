@@ -17,21 +17,24 @@ const miningTasks = [
   { x: 0.5, y: 0.5, name: "Central Hub", mined: false }
 ];
 
-// Wizard Robot properties
+/**
+ * Wizard Robot properties
+ * State machine: moves to task -> mines -> moves to next task -> repeat
+ */
 const robot = {
-  x: canvas.width * 0.75,
-  y: canvas.height * 0.6,
-  targetX: canvas.width * 0.75,
-  targetY: canvas.height * 0.6,
-  angle: 0,
-  scanAngle: 0,
-  scanRadius: 150,
-  mappedPoints: [],
-  currentTask: 0,
-  isMoving: false,
-  isMining: false,
-  miningProgress: 0,
-  speed: 2
+  x: canvas.width * 0.75,           // Current X position
+  y: canvas.height * 0.6,            // Current Y position
+  targetX: canvas.width * 0.75,      // Target X position to move towards
+  targetY: canvas.height * 0.6,      // Target Y position to move towards
+  angle: 0,                          // Current rotation angle
+  scanAngle: 0,                      // Rotating scan beam angle
+  scanRadius: 150,                   // Scanning radius
+  mappedPoints: [],                  // Array of scanned points
+  currentTask: 0,                    // Index of current mining task
+  isMoving: false,                   // State: true when traveling to task
+  isMining: false,                   // State: true when mining at task location
+  miningProgress: 0,                 // Mining progress (0 to 1)
+  speed: 2                           // Movement speed
 };
 
 // Enhanced particle system
