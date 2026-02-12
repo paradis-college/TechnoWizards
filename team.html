@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/team.css">
 </head>
@@ -21,63 +22,106 @@
 </nav>
 
 <section class="team-section">
-  <h1>Meet the Wizards</h1>
+  <h1>✨ Meet the Wizards ✨</h1>
+  <p class="team-subtitle">Click on any team member to learn more about their magical powers!</p>
 
 <div class="team-grid">
 
-  <div class="team-card">
-    <img src="https://via.placeholder.com/300" alt="Ilinca Olaru">
+  <div class="team-card" data-member="ilinca">
+    <div class="card-glow"></div>
+    <img src="assets/images/portrait/ilinca.jpg" alt="Ilinca Olaru" onerror="this.src='https://via.placeholder.com/300/0077ff/ffffff?text=Ilinca+Olaru'">
     <h3>Ilinca Olaru</h3>
     <p>👑 Team Leader</p>
+    <div class="magic-sparkle">✨</div>
   </div>
 
-  <div class="team-card">
-    <img src="https://via.placeholder.com/300" alt="Maria Parasca">
+  <div class="team-card" data-member="maria">
+    <div class="card-glow"></div>
+    <img src="assets/images/portrait/maria.jpg" alt="Maria Parasca" onerror="this.src='https://via.placeholder.com/300/00b3ff/ffffff?text=Maria+Parasca'">
     <h3>Maria Parasca</h3>
     <p>💻 Coder & 🛠 Builder</p>
+    <div class="magic-sparkle">✨</div>
   </div>
 
-  <div class="team-card">
-    <img src="https://via.placeholder.com/300" alt="Elisabeta Bura">
+  <div class="team-card" data-member="elisabeta">
+    <div class="card-glow"></div>
+    <img src="assets/images/portrait/elisabeta.jpg" alt="Elisabeta Bura" onerror="this.src='https://via.placeholder.com/300/a855f7/ffffff?text=Elisabeta+Bura'">
     <h3>Elisabeta Bura</h3>
     <p>💻 Coder & 📊 Project Manager</p>
+    <div class="magic-sparkle">✨</div>
   </div>
 
-  <div class="team-card">
-    <img src="https://via.placeholder.com/300" alt="Alexia Diaconita">
+  <div class="team-card" data-member="alexia">
+    <div class="card-glow"></div>
+    <img src="assets/images/portrait/alexia.jpg" alt="Alexia Diaconita" onerror="this.src='https://via.placeholder.com/300/7c3aed/ffffff?text=Alexia+Diaconita'">
     <h3>Alexia Diaconita</h3>
     <p>📊 Project Manager & 🎯 Mission Strategist</p>
+    <div class="magic-sparkle">✨</div>
   </div>
 
-  <div class="team-card">
-    <img src="https://via.placeholder.com/300" alt="David Hriticu">
+  <div class="team-card" data-member="david">
+    <div class="card-glow"></div>
+    <img src="assets/images/portrait/david.jpg" alt="David Hriticu" onerror="this.src='https://via.placeholder.com/300/0099ff/ffffff?text=David+Hriticu'">
     <h3>David Hriticu</h3>
     <p>🛠 Builder & 🔍 Researcher</p>
+    <div class="magic-sparkle">✨</div>
   </div>
 
-  <div class="team-card">
-    <img src="https://via.placeholder.com/300" alt="Eduard Grigoruta">
+  <div class="team-card" data-member="eduard">
+    <div class="card-glow"></div>
+    <img src="assets/images/portrait/eduard.jpg" alt="Eduard Grigoruta" onerror="this.src='https://via.placeholder.com/300/9333ea/ffffff?text=Eduard+Grigoruta'">
     <h3>Eduard Grigoruta</h3>
     <p>💻 Coder & 🎯 Mission Strategist</p>
+    <div class="magic-sparkle">✨</div>
   </div>
 
-  <div class="team-card">
-    <img src="https://via.placeholder.com/300" alt="Rares Mazilu">
+  <div class="team-card" data-member="rares">
+    <div class="card-glow"></div>
+    <img src="assets/images/portrait/rares.jpg" alt="Rares Mazilu" onerror="this.src='https://via.placeholder.com/300/0055ff/ffffff?text=Rares+Mazilu'">
     <h3>Rares Mazilu</h3>
     <p>💻 Coder & 🛠 Builder</p>
+    <div class="magic-sparkle">✨</div>
   </div>
 
-  <div class="team-card">
-    <img src="https://via.placeholder.com/300" alt="Alexandru Bucataru">
+  <div class="team-card" data-member="alexandru">
+    <div class="card-glow"></div>
+    <img src="assets/images/portrait/alexandru.jpg" alt="Alexandru Bucataru" onerror="this.src='https://via.placeholder.com/300/6366f1/ffffff?text=Alexandru+Bucataru'">
     <h3>Alexandru Bucataru</h3>
     <p>🔍 Researcher & 💻 Coder</p>
+    <div class="magic-sparkle">✨</div>
   </div>
 
 </div>
-
-    
-  </div>
 </section>
 
+<!-- Team Member Modal -->
+<div id="teamModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="modal-header">
+      <img id="modalImage" src="" alt="">
+      <div class="modal-header-text">
+        <h2 id="modalName"></h2>
+        <p id="modalRole"></p>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3>🎯 Main Activities</h3>
+        <div id="modalActivities"></div>
+      </div>
+      <div class="modal-section">
+        <h3>✨ Core Values Demonstrated</h3>
+        <div id="modalValues"></div>
+      </div>
+      <div class="modal-section">
+        <h3>🏆 Achievements</h3>
+        <div id="modalAchievements"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/team.js"></script>
 </body>
 </html>
