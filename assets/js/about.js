@@ -7,7 +7,26 @@ expandables.forEach(card => {
   const preview = card.querySelector('.preview');
   const icon = card.querySelector('.expand-icon');
 
+  // Initialize the card as not expanded
+  hiddenContent.style.maxHeight = '0';
+  preview.style.display = 'block';
+  icon.textContent = '+';
+
   header.addEventListener('click', () => {
+    // Close all other expandables first
+    expandables.forEach(otherCard => {
+      if (otherCard !== card && otherCard.classList.contains('expanded')) {
+        const otherHidden = otherCard.querySelector('.hidden-content');
+        const otherPreview = otherCard.querySelector('.preview');
+        const otherIcon = otherCard.querySelector('.expand-icon');
+        otherCard.classList.remove('expanded');
+        otherHidden.style.maxHeight = '0';
+        otherPreview.style.display = 'block';
+        otherIcon.textContent = '+';
+      }
+    });
+
+    // Toggle this card
     card.classList.toggle('expanded');
 
     if (card.classList.contains('expanded')) {
@@ -27,11 +46,20 @@ const valueCards = document.querySelectorAll('.value');
 
 valueCards.forEach(card => {
   card.addEventListener('click', () => {
+    // Close all other flipped cards
+    valueCards.forEach(otherCard => {
+      if (otherCard !== card && otherCard.classList.contains('flipped')) {
+        otherCard.classList.remove('flipped');
+      }
+    });
+
     // Toggle flip
     card.classList.toggle('flipped');
 
     // Add magical particle effect on click
-    createMagicParticles(card);
+    if (card.classList.contains('flipped')) {
+      createMagicParticles(card);
+    }
   });
 });
 

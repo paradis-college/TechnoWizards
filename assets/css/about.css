@@ -30,6 +30,38 @@
   align-items: center;
   padding-top: 80px;
   text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, rgba(11, 28, 58, 0.8), rgba(168, 85, 247, 0.3), rgba(0, 119, 255, 0.3));
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, transparent 50%);
+  animation: spin 20s linear infinite;
+}
+
+.about-hero::after {
+  content: '✨🔮⚡🌟🧙‍♂️🤖⭐💡';
+  position: absolute;
+  font-size: 4em;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+  letter-spacing: 40px;
+  top: 20%;
+}
+
+.about-hero h1,
+.about-hero p {
+  position: relative;
+  z-index: 1;
 }
 
 .about-content {
@@ -50,6 +82,60 @@
   opacity: 0;
   transition: all 0.8s ease;
   border: 2px solid rgba(168, 85, 247, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.about-card:hover::before {
+  left: 100%;
+}
+
+.about-card.animated-card {
+  position: relative;
+}
+
+.about-card.animated-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 40px rgba(0,179,255,0.3);
+  border-color: rgba(0, 179, 255, 0.5);
+}
+
+.card-decoration {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.about-card.animated-card:hover .card-decoration {
+  opacity: 0.7;
+}
+
+.float-icon {
+  font-size: 1.5em;
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-icon:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.float-icon:nth-child(3) {
+  animation-delay: 1s;
 }
 
 .about-card.visible {

@@ -9,26 +9,42 @@ const lidarSketch = p => {
     const canvas = p.createCanvas(500, 400);
     canvas.parent("lidar-canvas");
 
-    // Create more interesting cave-like walls
-    for (let i = 0; i < 8; i++) {
-      const angle = (p.TWO_PI / 8) * i;
-      const dist = 150 + p.random(-30, 30);
-      const x = p.width / 2 + p.cos(angle) * dist;
-      const y = p.height / 2 + p.sin(angle) * dist;
-
-      walls.push({
-        x1: x,
-        y1: y,
-        x2: p.width / 2 + p.cos(angle + p.TWO_PI / 8) * (dist + p.random(-20, 20)),
-        y2: p.height / 2 + p.sin(angle + p.TWO_PI / 8) * (dist + p.random(-20, 20))
-      });
-    }
-
-    // Boundary walls
-    walls.push({ x1: 0, y1: 0, x2: p.width, y2: 0 });
-    walls.push({ x1: p.width, y1: 0, x2: p.width, y2: p.height });
-    walls.push({ x1: p.width, y1: p.height, x2: 0, y2: p.height });
-    walls.push({ x1: 0, y1: p.height, x2: 0, y2: 0 });
+    // Create living room / cave-like walls with furniture
+    // Back wall
+    walls.push({ x1: 50, y1: 50, x2: 450, y2: 50 });
+    
+    // Right wall with opening
+    walls.push({ x1: 450, y1: 50, x2: 450, y2: 150 });
+    walls.push({ x1: 450, y1: 250, x2: 450, y2: 350 });
+    
+    // Front wall
+    walls.push({ x1: 450, y1: 350, x2: 50, y2: 350 });
+    
+    // Left wall with opening
+    walls.push({ x1: 50, y1: 350, x2: 50, y2: 250 });
+    walls.push({ x1: 50, y1: 150, x2: 50, y2: 50 });
+    
+    // Furniture: Couch (left side)
+    walls.push({ x1: 80, y1: 280, x2: 180, y2: 280 });
+    walls.push({ x1: 180, y1: 280, x2: 180, y2: 320 });
+    walls.push({ x1: 180, y1: 320, x2: 80, y2: 320 });
+    walls.push({ x1: 80, y1: 320, x2: 80, y2: 280 });
+    
+    // Furniture: Table (center)
+    walls.push({ x1: 220, y1: 180, x2: 320, y2: 180 });
+    walls.push({ x1: 320, y1: 180, x2: 320, y2: 220 });
+    walls.push({ x1: 320, y1: 220, x2: 220, y2: 220 });
+    walls.push({ x1: 220, y1: 220, x2: 220, y2: 180 });
+    
+    // Furniture: Shelf (right side)
+    walls.push({ x1: 380, y1: 100, x2: 420, y2: 100 });
+    walls.push({ x1: 420, y1: 100, x2: 420, y2: 140 });
+    walls.push({ x1: 420, y1: 140, x2: 380, y2: 140 });
+    walls.push({ x1: 380, y1: 140, x2: 380, y2: 100 });
+    
+    // Small irregular cave features
+    walls.push({ x1: 120, y1: 80, x2: 150, y2: 100 });
+    walls.push({ x1: 350, y1: 300, x2: 380, y2: 320 });
 
     // More rays for better visualization
     for (let a = 0; a < 360; a += 2) {
@@ -37,21 +53,29 @@ const lidarSketch = p => {
   };
 
   p.draw = () => {
-    // Dark cave background
+    // Dark cave/room background
     p.background(5, 10, 20);
 
-    // Ambient cave effect
+    // Room floor effect
     p.noStroke();
-    p.fill(10, 20, 40, 30);
-    p.ellipse(p.width / 2, p.height / 2, 400, 400);
+    p.fill(15, 20, 30, 50);
+    p.rect(0, 0, p.width, p.height);
 
     angleOffset = p.map(p.mouseX, 0, p.width, -p.PI, p.PI);
     robotPulse += 0.05;
 
-    // Draw walls with cave texture
-    p.stroke(100, 120, 140);
-    p.strokeWeight(3);
-    walls.forEach(w => p.line(w.x1, w.y1, w.x2, w.y2));
+    // Draw walls with room texture
+    p.stroke(140, 120, 100);
+    p.strokeWeight(4);
+    walls.forEach((w, index) => {
+      // Vary colors for furniture vs walls
+      if (index < 6) {
+        p.stroke(100, 120, 140); // Walls
+      } else {
+        p.stroke(120, 100, 80); // Furniture
+      }
+      p.line(w.x1, w.y1, w.x2, w.y2);
+    });
 
     p.translate(p.width / 2, p.height / 2);
 
@@ -153,8 +177,9 @@ const lidarSketch = p => {
     p.noStroke();
     p.textSize(12);
     p.textAlign(p.LEFT);
-    p.text(`Scanning: ${scanPoints.length} points`, 10, 20);
+    p.text(`Scanning Room: ${scanPoints.length} points`, 10, 20);
     p.text(`Rotation: ${Math.floor((angleOffset * 180 / Math.PI + 180) % 360)}°`, 10, 35);
+    p.text(`Obstacles: Walls + Furniture`, 10, 50);
   };
 
   function castRay(angle, wall) {

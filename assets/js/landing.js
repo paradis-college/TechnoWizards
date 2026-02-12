@@ -8,14 +8,30 @@ const particles = [];
 const stars = [];
 const scanLines = [];
 
+// Mining task locations
+const miningTasks = [
+  { x: 0.2, y: 0.3, name: "Sample Site A", mined: false },
+  { x: 0.7, y: 0.2, name: "Excavation B", mined: false },
+  { x: 0.8, y: 0.7, name: "Dig Site C", mined: false },
+  { x: 0.3, y: 0.8, name: "Mining Zone D", mined: false },
+  { x: 0.5, y: 0.5, name: "Central Hub", mined: false }
+];
+
 // Wizard Robot properties
 const robot = {
   x: canvas.width * 0.75,
   y: canvas.height * 0.6,
+  targetX: canvas.width * 0.75,
+  targetY: canvas.height * 0.6,
   angle: 0,
   scanAngle: 0,
   scanRadius: 150,
-  mappedPoints: []
+  mappedPoints: [],
+  currentTask: 0,
+  isMoving: false,
+  isMining: false,
+  miningProgress: 0,
+  speed: 2
 };
 
 // Enhanced particle system
@@ -166,32 +182,156 @@ function drawStar(x, y, spikes, outerRadius) {
   ctx.fill();
 }
 
+// Update robot movement and mining
+function updateRobotMovement() {
+  if (!robot.isMining) {
+    // Move towards target
+    const dx = robot.targetX - robot.x;
+    const dy = robot.targetY - robot.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance > 5) {
+      robot.isMoving = true;
+      robot.x += (dx / distance) * robot.speed;
+      robot.y += (dy / distance) * robot.speed;
+      robot.angle = Math.atan2(dy, dx);
+    } else {
+      // Reached target, start mining
+      robot.isMoving = false;
+      robot.isMining = true;
+      robot.miningProgress = 0;
+    }
+  } else {
+    // Mining in progress
+    robot.miningProgress += 0.01;
+    if (robot.miningProgress >= 1) {
+      // Mark task as complete
+      miningTasks[robot.currentTask].mined = true;
+      
+      // Move to next task
+      robot.currentTask = (robot.currentTask + 1) % miningTasks.length;
+      
+      // Reset all tasks if we completed the cycle
+      if (robot.currentTask === 0) {
+        miningTasks.forEach(task => task.mined = false);
+      }
+      
+      // Set new target
+      robot.targetX = canvas.width * miningTasks[robot.currentTask].x;
+      robot.targetY = canvas.height * miningTasks[robot.currentTask].y;
+      robot.isMining = false;
+    }
+  }
+}
+
+// Draw mining tasks
+function drawMiningTasks() {
+  miningTasks.forEach((task, index) => {
+    const x = canvas.width * task.x;
+    const y = canvas.height * task.y;
+    const isCurrent = index === robot.currentTask;
+    
+    // Task platform
+    ctx.fillStyle = task.mined ? 'rgba(0, 179, 255, 0.2)' : 'rgba(168, 85, 247, 0.2)';
+    ctx.beginPath();
+    ctx.arc(x, y, 40, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Task marker
+    if (!task.mined || isCurrent) {
+      const pulseSize = isCurrent ? 30 + Math.sin(Date.now() * 0.005) * 5 : 25;
+      ctx.strokeStyle = isCurrent ? '#ffd700' : '#a855f7';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(x, y, pulseSize, 0, Math.PI * 2);
+      ctx.stroke();
+      
+      // Task icon
+      ctx.font = '24px Arial';
+      ctx.fillStyle = isCurrent ? '#ffd700' : '#a855f7';
+      ctx.textAlign = 'center';
+      ctx.fillText(task.mined ? '✓' : '⛏', x, y + 8);
+    }
+    
+    // Mining progress indicator
+    if (isCurrent && robot.isMining) {
+      ctx.strokeStyle = '#ffd700';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.arc(x, y, 50, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * robot.miningProgress);
+      ctx.stroke();
+      
+      // Mining particles
+      for (let i = 0; i < 5; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const dist = Math.random() * 30;
+        const px = x + Math.cos(angle) * dist;
+        const py = y + Math.sin(angle) * dist;
+        ctx.fillStyle = `rgba(255, 215, 0, ${Math.random() * 0.5})`;
+        ctx.beginPath();
+        ctx.arc(px, py, Math.random() * 3 + 1, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    
+    // Task name
+    ctx.font = '12px Orbitron';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+    ctx.textAlign = 'center';
+    ctx.fillText(task.name, x, y + 65);
+  });
+}
+
 // Draw scanning/mapping visualization
 function drawCartographyScan() {
   const x = robot.x;
   const y = robot.y;
 
-  // Rotating scan beam
-  robot.scanAngle += 0.02;
+  // Rotating scan beam (faster when moving)
+  robot.scanAngle += robot.isMoving ? 0.05 : 0.02;
 
-  ctx.strokeStyle = `rgba(168, 85, 247, 0.3)`;
-  ctx.lineWidth = 2;
+  if (robot.isMoving) {
+    // Show forward scanning when moving
+    ctx.strokeStyle = `rgba(0, 179, 255, 0.3)`;
+    ctx.lineWidth = 2;
 
-  for (let i = 0; i < 8; i++) {
-    const angle = robot.scanAngle + (i * Math.PI / 4);
-    const endX = x + Math.cos(angle) * robot.scanRadius;
-    const endY = y + Math.sin(angle) * robot.scanRadius;
+    for (let i = 0; i < 5; i++) {
+      const angle = robot.angle + (i - 2) * (Math.PI / 8);
+      const endX = x + Math.cos(angle) * robot.scanRadius;
+      const endY = y + Math.sin(angle) * robot.scanRadius;
 
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(endX, endY);
-    ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(endX, endY);
+      ctx.stroke();
 
-    // Scan point
-    ctx.fillStyle = `rgba(168, 85, 247, ${0.6 + Math.sin(Date.now() * 0.003 + i) * 0.4})`;
-    ctx.beginPath();
-    ctx.arc(endX, endY, 4, 0, Math.PI * 2);
-    ctx.fill();
+      // Scan point
+      ctx.fillStyle = `rgba(0, 179, 255, ${0.6 + Math.sin(Date.now() * 0.003 + i) * 0.4})`;
+      ctx.beginPath();
+      ctx.arc(endX, endY, 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  } else {
+    // Full 360 scan when stationary
+    ctx.strokeStyle = `rgba(168, 85, 247, 0.3)`;
+    ctx.lineWidth = 2;
+
+    for (let i = 0; i < 8; i++) {
+      const angle = robot.scanAngle + (i * Math.PI / 4);
+      const endX = x + Math.cos(angle) * robot.scanRadius;
+      const endY = y + Math.sin(angle) * robot.scanRadius;
+
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(endX, endY);
+      ctx.stroke();
+
+      // Scan point
+      ctx.fillStyle = `rgba(168, 85, 247, ${0.6 + Math.sin(Date.now() * 0.003 + i) * 0.4})`;
+      ctx.beginPath();
+      ctx.arc(endX, endY, 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
   }
 
   // Add mapped points
@@ -267,6 +407,12 @@ function animate() {
   // Draw magical elements
   drawMagicalElements();
 
+  // Draw mining tasks
+  drawMiningTasks();
+
+  // Update robot movement
+  updateRobotMovement();
+
   // Draw scanning visualization
   drawCartographyScan();
 
@@ -278,9 +424,14 @@ function animate() {
 
 animate();
 
+// Initialize first target
+robot.targetX = canvas.width * miningTasks[0].x;
+robot.targetY = canvas.height * miningTasks[0].y;
+
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  robot.x = canvas.width * 0.75;
-  robot.y = canvas.height * 0.6;
+  // Update task positions on resize
+  robot.targetX = canvas.width * miningTasks[robot.currentTask].x;
+  robot.targetY = canvas.height * miningTasks[robot.currentTask].y;
 });
