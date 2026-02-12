@@ -44,7 +44,7 @@
 #nav-canvas {
   background: rgba(0,0,0,0.4);
   border-radius: 20px;
-  box-shadow: 
+  box-shadow:
     0 0 30px rgba(0,179,255,0.4),
     inset 0 0 50px rgba(168, 85, 247, 0.1);
   padding: 10px;
@@ -101,7 +101,7 @@
 .challenge-card:hover {
   transform: translateY(-10px);
   border-color: rgba(0, 179, 255, 0.6);
-  box-shadow: 
+  box-shadow:
     0 0 40px rgba(0, 179, 255, 0.4),
     0 0 60px rgba(168, 85, 247, 0.2);
 }
@@ -179,7 +179,7 @@
 .mission-card:hover {
   transform: translateY(-15px) scale(1.05);
   border-color: rgba(168, 85, 247, 0.6);
-  box-shadow: 
+  box-shadow:
     0 0 40px rgba(168, 85, 247, 0.5),
     0 10px 30px rgba(0, 179, 255, 0.3);
 }
@@ -205,15 +205,15 @@
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
+
   .project-section.reverse {
     direction: ltr;
   }
-  
+
   .challenge-grid {
     grid-template-columns: 1fr;
   }
-  
+
   #lidar-canvas,
   #nav-canvas {
     width: 100%;

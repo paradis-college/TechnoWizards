@@ -54,7 +54,7 @@
 
 .team-card:hover {
   transform: translateY(-15px) scale(1.05);
-  box-shadow: 
+  box-shadow:
     0 0 50px rgba(0,179,255,0.6),
     0 0 80px rgba(168, 85, 247, 0.4);
   border-color: rgba(0, 179, 255, 0.6);
@@ -142,7 +142,7 @@
   border-radius: 25px;
   width: 90%;
   max-width: 700px;
-  box-shadow: 
+  box-shadow:
     0 0 50px rgba(0, 179, 255, 0.5),
     0 0 100px rgba(168, 85, 247, 0.3);
   animation: modalSlideIn 0.4s ease;
@@ -288,12 +288,12 @@
     width: 95%;
     margin: 10% auto;
   }
-  
+
   .modal-header {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .team-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }

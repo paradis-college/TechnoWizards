@@ -15,7 +15,7 @@ const lidarSketch = p => {
       const dist = 150 + p.random(-30, 30);
       const x = p.width / 2 + p.cos(angle) * dist;
       const y = p.height / 2 + p.sin(angle) * dist;
-      
+
       walls.push({
         x1: x,
         y1: y,
@@ -39,7 +39,7 @@ const lidarSketch = p => {
   p.draw = () => {
     // Dark cave background
     p.background(5, 10, 20);
-    
+
     // Ambient cave effect
     p.noStroke();
     p.fill(10, 20, 40, 30);
@@ -80,7 +80,7 @@ const lidarSketch = p => {
         p.stroke(rayColor[0], rayColor[1], rayColor[2], alpha);
         p.strokeWeight(1);
         p.line(0, 0, closest.x, closest.y);
-        
+
         // Scan point at wall intersection
         newScanPoints.push({
           x: closest.x,
@@ -88,16 +88,16 @@ const lidarSketch = p => {
           dist: record,
           angle: rayAngle
         });
-        
+
         // Glow at impact point
         p.noStroke();
         p.fill(rayColor[0], rayColor[1], rayColor[2], alpha * 0.8);
         p.ellipse(closest.x, closest.y, 4, 4);
       }
     });
-    
+
     scanPoints = newScanPoints;
-    
+
     // Draw mapped area visualization
     if (scanPoints.length > 3) {
       p.noStroke();
@@ -111,42 +111,42 @@ const lidarSketch = p => {
 
     // Draw robot with wizard theme
     p.push();
-    
+
     // Pulsing glow effect
     p.noStroke();
     let pulseSize = 25 + p.sin(robotPulse) * 5;
     p.fill(168, 85, 247, 30);
     p.ellipse(0, 0, pulseSize * 2, pulseSize * 2);
-    
+
     // Robot body
     p.fill(0, 120, 255);
     p.stroke(0, 180, 255);
     p.strokeWeight(2);
     p.rect(-10, -10, 20, 20, 3);
-    
+
     // Wizard hat
     p.fill(168, 85, 247);
     p.noStroke();
     p.triangle(-12, -10, 12, -10, 0, -25);
-    
+
     // Hat stars
     p.fill(255, 215, 0);
     p.textSize(8);
     p.text('✨', -3, -17);
-    
+
     // Robot eyes
     p.fill(255);
     p.ellipse(-4, -4, 3, 3);
     p.ellipse(4, -4, 3, 3);
-    
+
     // Sensor indicator
     p.stroke(0, 255, 200);
     p.strokeWeight(1);
     p.noFill();
     p.arc(0, 0, 30, 30, angleOffset - p.PI / 4, angleOffset + p.PI / 4);
-    
+
     p.pop();
-    
+
     // Distance measurement display
     p.resetMatrix();
     p.fill(0, 180, 255);

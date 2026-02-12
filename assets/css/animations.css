@@ -6,11 +6,11 @@
 }
 
 @keyframes pulse {
-  0%, 100% { 
-    text-shadow: 0 0 10px #00b3ff, 0 0 20px #a855f7; 
+  0%, 100% {
+    text-shadow: 0 0 10px #00b3ff, 0 0 20px #a855f7;
   }
-  50% { 
-    text-shadow: 0 0 30px #00b3ff, 0 0 50px #a855f7, 0 0 70px #a855f7; 
+  50% {
+    text-shadow: 0 0 30px #00b3ff, 0 0 50px #a855f7, 0 0 70px #a855f7;
   }
 }
 

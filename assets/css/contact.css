@@ -55,7 +55,7 @@
 
 .contact-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 
+  box-shadow:
     0 0 50px rgba(0,179,255,0.6),
     0 10px 40px rgba(168, 85, 247, 0.3);
   border-color: rgba(168, 85, 247, 0.6);
@@ -231,11 +231,11 @@
 }
 
 @keyframes pulse {
-  0%, 100% { 
+  0%, 100% {
     opacity: 0.5;
     transform: scale(1);
   }
-  50% { 
+  50% {
     opacity: 1;
     transform: scale(1.2);
   }
@@ -246,11 +246,11 @@
   .workflow-steps {
     flex-direction: column;
   }
-  
+
   .workflow-arrow {
     transform: rotate(90deg);
   }
-  
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -260,7 +260,7 @@
   .contact-card {
     padding: 25px;
   }
-  
+
   .workflow-step {
     min-width: 100%;
   }

@@ -102,14 +102,14 @@ body {
 .btn-primary {
   background: linear-gradient(135deg, #00b3ff, #0077ff);
   border: 2px solid #00b3ff;
-  box-shadow: 
+  box-shadow:
     0 0 20px rgba(0, 179, 255, 0.5),
     inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 
+  box-shadow:
     0 0 40px rgba(0, 179, 255, 0.8),
     0 10px 30px rgba(0, 179, 255, 0.4),
     inset 0 0 30px rgba(255, 255, 255, 0.2);
@@ -119,14 +119,14 @@ body {
 .btn-secondary {
   background: linear-gradient(135deg, #a855f7, #7c3aed);
   border: 2px solid #a855f7;
-  box-shadow: 
+  box-shadow:
     0 0 20px rgba(168, 85, 247, 0.5),
     inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary:hover {
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 
+  box-shadow:
     0 0 40px rgba(168, 85, 247, 0.8),
     0 10px 30px rgba(168, 85, 247, 0.4),
     inset 0 0 30px rgba(255, 255, 255, 0.2);

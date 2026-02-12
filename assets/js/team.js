@@ -180,10 +180,10 @@ teamCards.forEach(card => {
   card.addEventListener('click', () => {
     const memberId = card.dataset.member;
     const memberData = teamData[memberId];
-    
+
     if (memberData) {
       showMemberDetails(memberData);
-      
+
       // Add magical entrance animation
       modal.style.display = 'block';
       setTimeout(() => {
@@ -191,13 +191,13 @@ teamCards.forEach(card => {
       }, 10);
     }
   });
-  
+
   // Add hover effect
   card.addEventListener('mouseenter', () => {
     const sparkle = card.querySelector('.magic-sparkle');
     sparkle.style.animation = 'sparkle 0.6s ease-in-out';
   });
-  
+
   card.addEventListener('mouseleave', () => {
     const sparkle = card.querySelector('.magic-sparkle');
     sparkle.style.animation = '';
@@ -219,13 +219,13 @@ function showMemberDetails(member) {
   document.getElementById('modalImage').onerror = function() {
     this.src = `https://via.placeholder.com/300/0077ff/ffffff?text=${member.name.split(' ')[0]}`;
   };
-  
+
   // Activities
   const activitiesHtml = member.activities
     .map(activity => `<div class="activity-item">⚡ ${activity}</div>`)
     .join('');
   document.getElementById('modalActivities').innerHTML = activitiesHtml;
-  
+
   // Values
   const valuesHtml = member.values
     .map(v => `
@@ -236,7 +236,7 @@ function showMemberDetails(member) {
     `)
     .join('');
   document.getElementById('modalValues').innerHTML = valuesHtml;
-  
+
   // Achievements
   const achievementsHtml = member.achievements
     .map(achievement => `<div class="achievement-item">🏆 ${achievement}</div>`)
@@ -267,23 +267,23 @@ teamCards.forEach(card => {
 
 function createHoverParticles(card) {
   const rect = card.getBoundingClientRect();
-  
+
   for (let i = 0; i < 6; i++) {
     const particle = document.createElement('div');
     particle.className = 'hover-particle';
     particle.style.left = rect.left + rect.width / 2 + 'px';
     particle.style.top = rect.top + rect.height / 2 + 'px';
-    
+
     const angle = (Math.PI * 2 * i) / 6;
     const velocity = 1.5;
     const vx = Math.cos(angle) * velocity;
     const vy = Math.sin(angle) * velocity;
-    
+
     particle.style.setProperty('--vx', vx);
     particle.style.setProperty('--vy', vy);
-    
+
     document.body.appendChild(particle);
-    
+
     setTimeout(() => particle.remove(), 800);
   }
 }
