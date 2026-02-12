@@ -1,7 +1,8 @@
 # Pre-commit configuration for TechnoWizards
-# Skip CI for quick publishing
+# Disable CI for quick publishing
 ci:
-  skip: true
+  autofix_prs: false
+  autoupdate_schedule: manual
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
