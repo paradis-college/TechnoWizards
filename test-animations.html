@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Animations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #020814;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+    .animation-container {
+      margin: 40px auto;
+      max-width: 800px;
+      text-align: center;
+    }
+    h2 {
+      color: #00b3ff;
+      margin-bottom: 20px;
+    }
+    #lidar-canvas, #nav-canvas, #challenge-canvas {
+      background: rgba(0,0,0,0.4);
+      border-radius: 15px;
+      padding: 10px;
+      border: 2px solid rgba(0, 179, 255, 0.3);
+      display: inline-block;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+</head>
+<body>
+
+<div class="animation-container">
+  <h2>1. LiDAR Scanning Animation (400x320)</h2>
+  <div id="lidar-canvas"></div>
+</div>
+
+<div class="animation-container">
+  <h2>2. Autonomous Navigation Animation (400x320)</h2>
+  <div id="nav-canvas"></div>
+</div>
+
+<div class="animation-container">
+  <h2>3. Artifact Collection Challenge Animation (400x320)</h2>
+  <div id="challenge-canvas"></div>
+</div>
+
+<script src="assets/js/lidar.js"></script>
+<script src="assets/js/navigation.js"></script>
+<script src="assets/js/challenge.js"></script>
+
+</body>
+</html>
