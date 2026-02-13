@@ -99,8 +99,8 @@ Visit our interactive website to learn more:
 
 Want to learn more about FIRST LEGO League or our team? Check out our website or reach out through the contact page!
 
-**Email**: [Contact through website]  
-**Location**: Paradis College  
+**Email**: [Contact through website]
+**Location**: Paradis College
 **Season**: UNEARTHED™ 2025-26
 
 ---
@@ -116,4 +116,3 @@ Want to learn more about FIRST LEGO League or our team? Check out our website or
 ---
 
 *We are FIRST LEGO League Team TechnoWizards - turning ideas into robots and challenges into innovation!* ✨🔮🤖
-

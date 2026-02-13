@@ -210,15 +210,15 @@ function updateRobotMovement() {
     if (robot.miningProgress >= 1) {
       // Mark task as complete
       miningTasks[robot.currentTask].mined = true;
-      
+
       // Move to next task
       robot.currentTask = (robot.currentTask + 1) % miningTasks.length;
-      
+
       // Reset all tasks if we completed the cycle
       if (robot.currentTask === 0) {
         miningTasks.forEach(task => task.mined = false);
       }
-      
+
       // Set new target
       robot.targetX = canvas.width * miningTasks[robot.currentTask].x;
       robot.targetY = canvas.height * miningTasks[robot.currentTask].y;
@@ -233,13 +233,13 @@ function drawMiningTasks() {
     const x = canvas.width * task.x;
     const y = canvas.height * task.y;
     const isCurrent = index === robot.currentTask;
-    
+
     // Task platform
     ctx.fillStyle = task.mined ? 'rgba(0, 179, 255, 0.2)' : 'rgba(168, 85, 247, 0.2)';
     ctx.beginPath();
     ctx.arc(x, y, 40, 0, Math.PI * 2);
     ctx.fill();
-    
+
     // Task marker
     if (!task.mined || isCurrent) {
       const pulseSize = isCurrent ? 30 + Math.sin(Date.now() * 0.005) * 5 : 25;
@@ -248,14 +248,14 @@ function drawMiningTasks() {
       ctx.beginPath();
       ctx.arc(x, y, pulseSize, 0, Math.PI * 2);
       ctx.stroke();
-      
+
       // Task icon
       ctx.font = '24px Arial';
       ctx.fillStyle = isCurrent ? '#ffd700' : '#a855f7';
       ctx.textAlign = 'center';
       ctx.fillText(task.mined ? '✓' : '⛏', x, y + 8);
     }
-    
+
     // Mining progress indicator
     if (isCurrent && robot.isMining) {
       ctx.strokeStyle = '#ffd700';
@@ -263,7 +263,7 @@ function drawMiningTasks() {
       ctx.beginPath();
       ctx.arc(x, y, 50, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * robot.miningProgress);
       ctx.stroke();
-      
+
       // Mining particles
       for (let i = 0; i < 5; i++) {
         const angle = Math.random() * Math.PI * 2;
@@ -276,7 +276,7 @@ function drawMiningTasks() {
         ctx.fill();
       }
     }
-    
+
     // Task name
     ctx.font = '12px Orbitron';
     ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';

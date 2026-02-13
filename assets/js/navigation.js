@@ -260,11 +260,11 @@ function pickNewTarget() {
   // Pick a random point that's not in an obstacle
   let attempts = 0;
   let foundValid = false;
-  
+
   while (!foundValid && attempts < 20) {
     targetPoint.x = random(50, width - 50);
     targetPoint.y = random(50, height - 50);
-    
+
     // Check if target is not in an obstacle
     foundValid = true;
     obstacles.forEach(obs => {
@@ -272,10 +272,10 @@ function pickNewTarget() {
         foundValid = false;
       }
     });
-    
+
     attempts++;
   }
-  
+
   // If we couldn't find a valid point, use a safe default
   if (!foundValid) {
     targetPoint.x = 450;

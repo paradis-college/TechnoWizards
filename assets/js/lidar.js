@@ -12,36 +12,36 @@ const lidarSketch = p => {
     // Create living room / cave-like walls with furniture
     // Back wall
     walls.push({ x1: 50, y1: 50, x2: 450, y2: 50 });
-    
+
     // Right wall with opening
     walls.push({ x1: 450, y1: 50, x2: 450, y2: 150 });
     walls.push({ x1: 450, y1: 250, x2: 450, y2: 350 });
-    
+
     // Front wall
     walls.push({ x1: 450, y1: 350, x2: 50, y2: 350 });
-    
+
     // Left wall with opening
     walls.push({ x1: 50, y1: 350, x2: 50, y2: 250 });
     walls.push({ x1: 50, y1: 150, x2: 50, y2: 50 });
-    
+
     // Furniture: Couch (left side)
     walls.push({ x1: 80, y1: 280, x2: 180, y2: 280 });
     walls.push({ x1: 180, y1: 280, x2: 180, y2: 320 });
     walls.push({ x1: 180, y1: 320, x2: 80, y2: 320 });
     walls.push({ x1: 80, y1: 320, x2: 80, y2: 280 });
-    
+
     // Furniture: Table (center)
     walls.push({ x1: 220, y1: 180, x2: 320, y2: 180 });
     walls.push({ x1: 320, y1: 180, x2: 320, y2: 220 });
     walls.push({ x1: 320, y1: 220, x2: 220, y2: 220 });
     walls.push({ x1: 220, y1: 220, x2: 220, y2: 180 });
-    
+
     // Furniture: Shelf (right side)
     walls.push({ x1: 380, y1: 100, x2: 420, y2: 100 });
     walls.push({ x1: 420, y1: 100, x2: 420, y2: 140 });
     walls.push({ x1: 420, y1: 140, x2: 380, y2: 140 });
     walls.push({ x1: 380, y1: 140, x2: 380, y2: 100 });
-    
+
     // Small irregular cave features
     walls.push({ x1: 120, y1: 80, x2: 150, y2: 100 });
     walls.push({ x1: 350, y1: 300, x2: 380, y2: 320 });
