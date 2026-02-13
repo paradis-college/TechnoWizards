@@ -6,45 +6,45 @@ const lidarSketch = p => {
   let robotPulse = 0;
 
   p.setup = () => {
-    const canvas = p.createCanvas(500, 400);
+    const canvas = p.createCanvas(400, 320);
     canvas.parent("lidar-canvas");
 
     // Create living room / cave-like walls with furniture
     // Back wall
-    walls.push({ x1: 50, y1: 50, x2: 450, y2: 50 });
+    walls.push({ x1: 40, y1: 40, x2: 360, y2: 40 });
 
     // Right wall with opening
-    walls.push({ x1: 450, y1: 50, x2: 450, y2: 150 });
-    walls.push({ x1: 450, y1: 250, x2: 450, y2: 350 });
+    walls.push({ x1: 360, y1: 40, x2: 360, y2: 120 });
+    walls.push({ x1: 360, y1: 200, x2: 360, y2: 280 });
 
     // Front wall
-    walls.push({ x1: 450, y1: 350, x2: 50, y2: 350 });
+    walls.push({ x1: 360, y1: 280, x2: 40, y2: 280 });
 
     // Left wall with opening
-    walls.push({ x1: 50, y1: 350, x2: 50, y2: 250 });
-    walls.push({ x1: 50, y1: 150, x2: 50, y2: 50 });
+    walls.push({ x1: 40, y1: 280, x2: 40, y2: 200 });
+    walls.push({ x1: 40, y1: 120, x2: 40, y2: 40 });
 
     // Furniture: Couch (left side)
-    walls.push({ x1: 80, y1: 280, x2: 180, y2: 280 });
-    walls.push({ x1: 180, y1: 280, x2: 180, y2: 320 });
-    walls.push({ x1: 180, y1: 320, x2: 80, y2: 320 });
-    walls.push({ x1: 80, y1: 320, x2: 80, y2: 280 });
+    walls.push({ x1: 65, y1: 224, x2: 145, y2: 224 });
+    walls.push({ x1: 145, y1: 224, x2: 145, y2: 256 });
+    walls.push({ x1: 145, y1: 256, x2: 65, y2: 256 });
+    walls.push({ x1: 65, y1: 256, x2: 65, y2: 224 });
 
     // Furniture: Table (center)
-    walls.push({ x1: 220, y1: 180, x2: 320, y2: 180 });
-    walls.push({ x1: 320, y1: 180, x2: 320, y2: 220 });
-    walls.push({ x1: 320, y1: 220, x2: 220, y2: 220 });
-    walls.push({ x1: 220, y1: 220, x2: 220, y2: 180 });
+    walls.push({ x1: 176, y1: 144, x2: 256, y2: 144 });
+    walls.push({ x1: 256, y1: 144, x2: 256, y2: 176 });
+    walls.push({ x1: 256, y1: 176, x2: 176, y2: 176 });
+    walls.push({ x1: 176, y1: 176, x2: 176, y2: 144 });
 
     // Furniture: Shelf (right side)
-    walls.push({ x1: 380, y1: 100, x2: 420, y2: 100 });
-    walls.push({ x1: 420, y1: 100, x2: 420, y2: 140 });
-    walls.push({ x1: 420, y1: 140, x2: 380, y2: 140 });
-    walls.push({ x1: 380, y1: 140, x2: 380, y2: 100 });
+    walls.push({ x1: 304, y1: 80, x2: 336, y2: 80 });
+    walls.push({ x1: 336, y1: 80, x2: 336, y2: 112 });
+    walls.push({ x1: 336, y1: 112, x2: 304, y2: 112 });
+    walls.push({ x1: 304, y1: 112, x2: 304, y2: 80 });
 
     // Small irregular cave features
-    walls.push({ x1: 120, y1: 80, x2: 150, y2: 100 });
-    walls.push({ x1: 350, y1: 300, x2: 380, y2: 320 });
+    walls.push({ x1: 96, y1: 64, x2: 120, y2: 80 });
+    walls.push({ x1: 280, y1: 240, x2: 304, y2: 256 });
 
     // More rays for better visualization
     for (let a = 0; a < 360; a += 2) {
