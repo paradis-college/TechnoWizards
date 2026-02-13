@@ -201,6 +201,10 @@ function updateBot() {
         target = path[0];
         dx = target.x - bot.x;
         dy = target.y - bot.y;
+      } else {
+        // Reached final target, pick a new random target and recalculate
+        pickNewTarget();
+        calculatePath();
       }
     }
 
@@ -227,12 +231,11 @@ function updateBot() {
           size: random(2, 4)
         });
       }
-    } else {
-      // Reached target, recalculate path
-      if (dist(bot.x, bot.y, targetPoint.x, targetPoint.y) > 20) {
-        calculatePath();
-      }
     }
+  } else {
+    // No path, pick a new target
+    pickNewTarget();
+    calculatePath();
   }
 
   // Check if stuck or collision
@@ -247,7 +250,36 @@ function updateBot() {
     // Back up and recalculate
     bot.x -= cos(bot.angle) * bot.speed * 2;
     bot.y -= sin(bot.angle) * bot.speed * 2;
+    pickNewTarget();
     calculatePath();
+  }
+}
+
+// Pick a new random target
+function pickNewTarget() {
+  // Pick a random point that's not in an obstacle
+  let attempts = 0;
+  let foundValid = false;
+
+  while (!foundValid && attempts < 20) {
+    targetPoint.x = random(50, width - 50);
+    targetPoint.y = random(50, height - 50);
+
+    // Check if target is not in an obstacle
+    foundValid = true;
+    obstacles.forEach(obs => {
+      if (pointInRect(targetPoint.x, targetPoint.y, obs)) {
+        foundValid = false;
+      }
+    });
+
+    attempts++;
+  }
+
+  // If we couldn't find a valid point, use a safe default
+  if (!foundValid) {
+    targetPoint.x = 450;
+    targetPoint.y = 350;
   }
 }
 
