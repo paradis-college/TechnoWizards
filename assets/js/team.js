@@ -85,7 +85,7 @@ const teamData = {
     ]
   },
   david: {
-    name: "Hritcu",
+    name: "David Hritcu",
     role: "🛠 Builder & 🔍 Researcher",
     image: "assets/images/portrait/david.jpg",
     activities: [
