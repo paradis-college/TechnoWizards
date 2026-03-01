@@ -3,13 +3,12 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(2, 8, 20, 0.92);
+  background: transparent;
   display: flex;
   justify-content: center;
   gap: 30px;
   padding: 15px;
   z-index: 1000;
-  backdrop-filter: blur(10px);
 }
 
 .top-nav a {
@@ -161,47 +160,6 @@ body {
   animation: pulse 0.5s ease-in-out infinite;
 }
 
-/* LANGUAGE SWITCHER */
-.language-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  gap: 10px;
-  z-index: 9999;
-  background: rgba(2, 8, 20, 0.95);
-  padding: 10px;
-  border-radius: 25px;
-  box-shadow: 0 0 20px rgba(0, 179, 255, 0.3);
-}
-
-.lang-btn {
-  padding: 10px 18px;
-  border: 2px solid rgba(0, 179, 255, 0.6);
-  background: transparent;
-  color: white;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 600;
-  font-size: 0.95em;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.lang-btn:hover {
-  border-color: #00b3ff;
-  box-shadow: 0 0 15px rgba(0, 179, 255, 0.6);
-  transform: translateY(-2px);
-  color: #00b3ff;
-}
-
-.lang-btn.active {
-  background: linear-gradient(135deg, #0077ff, #00b3ff);
-  border-color: #00b3ff;
-  box-shadow: 0 0 20px rgba(0, 179, 255, 0.8);
-  color: white;
-}
-
 /* Animations are now in animations.css */
 
 /* LANGUAGE SWITCHER */
@@ -218,7 +176,7 @@ body {
 .lang-btn {
   padding: 8px 16px;
   border: 2px solid #00b3ff;
-  background: rgba(2, 8, 20, 0.85);
+  background: transparent;
   color: #00b3ff;
   border-radius: 20px;
   font-family: 'Orbitron', sans-serif;
@@ -226,7 +184,6 @@ body {
   font-size: 0.9em;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
