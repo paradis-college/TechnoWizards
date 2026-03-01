@@ -147,3 +147,61 @@ body {
 }
 
 /* Animations are now in animations.css */
+
+/* LANGUAGE SWITCHER */
+.language-switcher {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1001;
+  flex-direction: row;
+}
+
+.lang-btn {
+  padding: 8px 16px;
+  border: 2px solid #00b3ff;
+  background: rgba(2, 8, 20, 0.85);
+  color: #00b3ff;
+  border-radius: 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.lang-btn:hover {
+  background: rgba(0, 179, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 179, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, #00b3ff, #0077ff);
+  border-color: #a855f7;
+  box-shadow: 0 0 20px rgba(0, 179, 255, 0.8), 0 0 40px rgba(168, 85, 247, 0.6);
+  color: white;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+.lang-btn.active:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 179, 255, 1), 0 0 60px rgba(168, 85, 247, 0.8);
+}
+
+@media (max-width: 768px) {
+  .language-switcher {
+    top: 70px;
+    left: 10px;
+  }
+  
+  .lang-btn {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+}
