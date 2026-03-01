@@ -111,6 +111,18 @@
   border-color: rgba(0, 179, 255, 0.5);
 }
 
+.robot-img {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+.robot-img:hover {
+  transform: scale(1.05);
+}
+
 .card-decoration {
   position: absolute;
   top: 10px;
@@ -267,15 +279,3 @@
   color: #ffd700;
 }
 
-/* Magic particles */
-.magic-particle {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, #ffd700, #a855f7);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: particleFloat 1s ease-out forwards;
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
-  z-index: 9999;
-}

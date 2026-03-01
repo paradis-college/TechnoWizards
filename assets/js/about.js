@@ -101,3 +101,17 @@ valueCards.forEach(card => {
     }
   });
 });
+
+// Robot image interactivity (if present)
+const robotImg = document.querySelector('.robot-img');
+if (robotImg) {
+  robotImg.addEventListener('mouseenter', () => {
+    robotImg.style.transform = 'scale(1.05)';
+  });
+  robotImg.addEventListener('mouseleave', () => {
+    robotImg.style.transform = '';
+  });
+  robotImg.addEventListener('click', () => {
+    createMagicParticles(robotImg);
+  });
+}

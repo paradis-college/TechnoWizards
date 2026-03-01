@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/about.css">
+  <script src="assets/js/language.js"></script>
 </head>
 
 <body>
@@ -18,22 +19,19 @@
   <a href="about.html" class="active">About</a>
   <a href="team.html">Team</a>
   <a href="project.html">Project</a>
+  <a href="robot.html">Robot</a>
   <a href="contact.html">Contact</a>
 </nav>
 
 <section class="about-hero">
-  <h1>🧙‍♂️ Who Are the Techno Wizards? 🤖</h1>
-  <p>We turn ideas into robots and challenges into innovation.</p>
+  <h1 data-i18n="whoAreWizards">🧙‍♂️ Who Are the Techno Wizards? 🤖</h1>
+  <p data-i18n="ideas">We turn ideas into robots and challenges into innovation.</p>
 </section>
 
 <section class="about-content">
   <div class="about-card animated-card">
-    <h2>🧠 Our Mission</h2>
-    <p>
-      We are an <strong>8-member FIRST LEGO League team</strong> driven by curiosity,
-      teamwork, and engineering excellence. Our mission is to solve real-world
-      problems using robotics, creativity, and science.
-    </p>
+    <h2 data-i18n="ourMission">🧠 Our Mission</h2>
+    <p data-i18n="missionText">We are an 8-member FIRST LEGO League team driven by curiosity, teamwork, and engineering excellence. Our mission is to solve real-world problems using robotics, creativity, and science.</p>
     <div class="card-decoration">
       <span class="float-icon">🚀</span>
       <span class="float-icon">⚙️</span>
@@ -42,12 +40,18 @@
   </div>
 
   <div class="about-card animated-card">
-    <h2>⚙ FIRST LEGO League</h2>
-    <p>
-      FIRST LEGO League combines robotics, research, and innovation to help students
-      develop critical thinking, collaboration, and technical skills. We compete in
-      challenges that test our engineering, programming, and problem-solving abilities.
-    </p>
+    <h2 data-i18n="ourHistory">📜 Our History</h2>
+    <p data-i18n="historyText">This is our second year competing in FIRST LEGO League, and we're thrilled to announce that we have passed the regionals! This milestone reflects our team's dedication, hard work, and passion for robotics and innovation.</p>
+    <div class="card-decoration">
+      <span class="float-icon">🏆</span>
+      <span class="float-icon">🎯</span>
+      <span class="float-icon">✨</span>
+    </div>
+  </div>
+
+  <div class="about-card animated-card">
+    <h2 data-i18n="fllTitle">⚙ FIRST LEGO League</h2>
+    <p data-i18n="fllText">FIRST LEGO League combines robotics, research, and innovation to help students develop critical thinking, collaboration, and technical skills. We compete in challenges that test our engineering, programming, and problem-solving abilities.</p>
     <div class="card-decoration">
       <span class="float-icon">🏆</span>
       <span class="float-icon">🤖</span>
@@ -55,21 +59,24 @@
     </div>
   </div>
 
+  <div class="about-card animated-card">
+    <h2 data-i18n="ourRobotAbout">🤖 Our Robot</h2>
+    <img src="assets/images/robot-spike.jpg" alt="SPIKE Prime Robot" class="robot-img" onerror="this.src='assets/images/robot-placeholder.svg'">
+    <p data-i18n="robotAboutText">Built on the SPIKE Prime platform, this robot drives our missions autonomously in FLL competitions.</p>
+  </div>
+
   <div class="about-card expandable">
-    <h2>🔬 Our Approach <span class="expand-icon">+</span></h2>
-    <p class="preview">Click to discover our methodology...</p>
+    <h2 data-i18n="ourApproach">🔬 Our Approach <span class="expand-icon">+</span></h2>
+    <p class="preview" data-i18n="approachPreview">Click to discover our methodology...</p>
     <div class="hidden-content">
       <p>
-        <strong>Research & Innovation:</strong> We dive deep into real-world problems,
-        researching historical and modern solutions to create innovative approaches.
+        <strong data-i18n="researchInnovation">Research & Innovation:</strong> <span data-i18n="researchText">We dive deep into real-world problems, researching historical and modern solutions to create innovative approaches.</span>
       </p>
       <p>
-        <strong>Robot Engineering:</strong> We design, build, and program autonomous
-        robots using LEGO SPIKE Prime, combining mechanical design with advanced coding.
+        <strong data-i18n="robotEngineering">Robot Engineering:</strong> <span data-i18n="engineeringText">We design, build, and program autonomous robots using LEGO SPIKE Prime, combining mechanical design with advanced coding.</span>
       </p>
       <p>
-        <strong>Team Collaboration:</strong> Every member brings unique skills - from
-        coding and building to strategy and presentation - working together as a cohesive unit.
+        <strong data-i18n="teamCollaboration">Team Collaboration:</strong> <span data-i18n="collaborationText">Every member brings unique skills - from coding and building to strategy and presentation - working together as a cohesive unit.</span>
       </p>
     </div>
   </div>
@@ -78,90 +85,90 @@
     <h2>🏆 Competition Elements <span class="expand-icon">+</span></h2>
     <p class="preview">Learn how we compete...</p>
     <div class="hidden-content">
+      < data-i18n="competitionElements">🏆 Competition Elements <span class="expand-icon">+</span></h2>
+    <p class="preview" data-i18n="competitionPreview">Learn how we compete...</p>
+    <div class="hidden-content">
       <p>
-        <strong>Robot Game:</strong> Autonomous robot completing themed missions on a competition mat.
+        <strong data-i18n="robotGame">Robot Game:</strong> <span data-i18n="robotGameText">Autonomous robot completing themed missions on a competition mat.</span>
       </p>
       <p>
-        <strong>Innovation Project:</strong> Research and solve real problems with creative solutions.
+        <strong data-i18n="innovationProject">Innovation Project:</strong> <span data-i18n="innovationProjectText">Research and solve real problems with creative solutions.</span>
       </p>
       <p>
-        <strong>Robot Design:</strong> Explain our engineering choices and programming strategies.
+        <strong data-i18n="robotDesign">Robot Design:</strong> <span data-i18n="robotDesignText">Explain our engineering choices and programming strategies.</span>
       </p>
       <p>
-        <strong>Core Values:</strong> Demonstrate teamwork, respect, and gracious professionalism.
-      </p>
-    </div>
-  </div>
+        <strong data-i18n="coreValuesLabel">Core Values:</strong> <span data-i18n="coreValuesText">Demonstrate teamwork, respect, and gracious professionalism.</span>
 </section>
 
 <section class="values">
-  <h2>🌟 Our Core Values</h2>
-  <p class="values-subtitle">Click each value to learn more about our team!</p>
+  <h2 data-i18n="coreValues">🌟 Our Core Values</h2>
+  <p class="values-subtitle" data-i18n="coreValuesSubtitle">Click each value to learn more about our team!</p>
 
   <div class="values-grid">
     <div class="value" data-value="teamwork">
       <div class="value-front">
         <span class="value-icon">🤝</span>
-        <span class="value-label">Teamwork</span>
+        <span class="value-label" data-i18n="teamworkLabel">Teamwork</span>
       </div>
       <div class="value-back">
-        <p><strong>Together We Achieve More</strong></p>
-        <p>Our team meets weekly, brainstorms solutions, and supports each other. Every voice matters!</p>
+        <p><strong data-i18n="teamworkBack">Together We Achieve More</strong></p>
+        <p data-i18n="teamworkDesc">Our team meets weekly, brainstorms solutions, and supports each other. Every voice matters!</p>
       </div>
     </div>
 
     <div class="value" data-value="innovation">
       <div class="value-front">
         <span class="value-icon">💡</span>
-        <span class="value-label">Innovation</span>
+        <span class="value-label" data-i18n="innovationLabel">Innovation</span>
       </div>
       <div class="value-back">
-        <p><strong>Creative Problem Solving</strong></p>
-        <p>We think outside the box, combining magic and technology to create unique robot solutions.</p>
+        <p><strong data-i18n="innovationBack">Creative Problem Solving</strong></p>
+        <p data-i18n="innovationDesc">We think outside the box, combining magic and technology to create unique robot solutions.</p>
       </div>
     </div>
 
     <div class="value" data-value="learning">
       <div class="value-front">
         <span class="value-icon">📚</span>
-        <span class="value-label">Learning</span>
+        <span class="value-label" data-i18n="learningLabel">Learning</span>
       </div>
       <div class="value-back">
-        <p><strong>Continuous Growth</strong></p>
-        <p>Every challenge is a learning opportunity. We research, experiment, and improve constantly.</p>
+        <p><strong data-i18n="learningBack">Continuous Growth</strong></p>
+        <p data-i18n="learningDesc">Every challenge is a learning opportunity. We research, experiment, and improve constantly.</p>
       </div>
     </div>
 
     <div class="value" data-value="professionalism">
       <div class="value-front">
         <span class="value-icon">⚖</span>
-        <span class="value-label">Gracious Professionalism</span>
+        <span class="value-label" data-i18n="professionalismLabel">Gracious Professionalism</span>
       </div>
       <div class="value-back">
-        <p><strong>Respect & Integrity</strong></p>
-        <p>We compete fiercely but treat all teams with kindness and respect, celebrating everyone's success.</p>
+        <p><strong data-i18n="professionalismBack">Respect & Integrity</strong></p>
+        <p data-i18n="professionalismDesc">We compete fiercely but treat all teams with kindness and respect, celebrating everyone's success.</p>
       </div>
     </div>
 
     <div class="value" data-value="impact">
       <div class="value-front">
         <span class="value-icon">🚀</span>
-        <span class="value-label">Impact</span>
+        <span class="value-label" data-i18n="impactLabel">Impact</span>
       </div>
       <div class="value-back">
-        <p><strong>Making a Difference</strong></p>
-        <p>Our projects aim to solve real problems and positively impact our community and beyond.</p>
+        <p><strong data-i18n="impactBack">Making a Difference</strong></p>
+        <p data-i18n="impactDesc">Our projects aim to solve real problems and positively impact our community and beyond.</p>
       </div>
     </div>
 
     <div class="value" data-value="fun">
       <div class="value-front">
         <span class="value-icon">🎉</span>
-        <span class="value-label">Fun</span>
+        <span class="value-label" data-i18n="funLabel">Fun</span>
       </div>
       <div class="value-back">
-        <p><strong>Joy in Discovery</strong></p>
-        <p>We love what we do! Robotics is exciting, and we celebrate every milestone with enthusiasm.</p>
+        <p><strong data-i18n="funBack">Joy in Discovery</strong></p>
+        <p data-i18n="funDesc">We love what we do! Robotics is exciting, and we celebrate every milestone with enthusiasm.</p>
       </div>
     </div>
   </div>
@@ -176,6 +183,7 @@
   </div>
 </div>
 
+<script src="assets/js/language.js"></script>
 <script src="assets/js/scroll.js"></script>
 <script src="assets/js/about.js"></script>
 </body>

@@ -1,0 +1,92 @@
+/* Styles specific to robot page */
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(2, 8, 20, 0.9);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  z-index: 100;
+}
+
+.robot-hero {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  text-align: center;
+  background: linear-gradient(135deg, #020814 0%, #0055ff 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  color: #00b3ff;
+  position: relative;
+}
+
+.robot-img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 30px auto;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+.robot-img:hover {
+  transform: scale(1.05);
+}
+
+.robot-attachments {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,179,255,0.15);
+}
+
+.robot-attachments h2 {
+  margin-top: 0;
+}
+
+.robot-attachments ul {
+  list-style: disc inside;
+  margin-top: 10px;
+}
+
+.robot-hero h1 {
+  font-size: 3em;
+}
+
+.robot-details {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,179,255,0.15);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.robot-details.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.robot-details img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto 30px;
+  border-radius: 15px;
+}
+
+.robot-details ul {
+  list-style: disc inside;
+  margin-top: 15px;
+}

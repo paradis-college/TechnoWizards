@@ -12,6 +12,7 @@
 
   <!-- p5.js -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="assets/js/language.js"></script>
 </head>
 
 <body>
@@ -21,34 +22,26 @@
   <a href="about.html">About</a>
   <a href="team.html">Team</a>
   <a href="project.html" class="active">Project</a>
+  <a href="robot.html">Robot</a>
   <a href="contact.html">Contact</a>
 </nav>
 
 <section class="project-hero">
-  <h1>🔮 Innovation & Robot Magic 🤖</h1>
-  <p>Exploring the intersection of ancient wisdom and modern technology</p>
+  <h1 data-i18n="innovationRobot">🔮 Innovation & Robot Magic 🤖</h1>
+  <p data-i18n="ancientModern">Exploring the intersection of ancient wisdom and modern technology</p>
 </section>
 
 <!-- Animation Demonstrations Section -->
 <section class="animations-header">
-  <h2>🎯 Robot Demonstrations</h2>
-  <p>Interactive visualizations of our robot's capabilities</p>
+  <h2 data-i18n="robotDemonstrations">🎯 Robot Demonstrations</h2>
+  <p data-i18n="interactiveVis">Interactive visualizations of our robot's capabilities</p>
 </section>
 
 <section class="project-section">
   <div class="project-text">
-    <h2>📡 LiDAR Scanning</h2>
-    <p>
-      Our robot uses <strong>LiDAR sensors</strong> to emit laser rays in multiple
-      directions. Each ray measures the distance to nearby obstacles, allowing the
-      robot to detect walls even in complete darkness.
-    </p>
-    <p>
-      This technology is inspired by archaeological cave exploration, where traditional
-      light-based vision fails. By mapping the environment through distance measurement,
-      we uncover hidden spaces - just like archaeologists uncover history.
-    </p>
-    <p class="hint">✨ Move your mouse to simulate robot rotation ✨</p>
+    <h2 data-i18n="lidarScanning">📡 LiDAR Scanning</h2>
+    <p data-i18n="lidarText"></p>
+    <p class="hint" data-i18n="lidarHint">✨ Move your mouse to simulate robot rotation ✨</p>
   </div>
 
   <div id="lidar-canvas"></div>
@@ -56,18 +49,9 @@
 
 <section class="project-section reverse">
   <div class="project-text">
-    <h2>🧭 Autonomous Navigation</h2>
-    <p>
-      Based on LiDAR data, our robot calculates optimal paths through complex
-      environments. It uses advanced algorithms to detect obstacles, identify free
-      space, and make real-time navigation decisions.
-    </p>
-    <p>
-      Our navigation system combines sensor data with pathfinding algorithms,
-      allowing the robot to explore unknown territories autonomously - similar to
-      how archaeologists systematically explore dig sites.
-    </p>
-    <p class="hint">✨ Watch the robot navigate around obstacles ✨</p>
+    <h2 data-i18n="autonomousNav">🧭 Autonomous Navigation</h2>
+    <p data-i18n="navText"></p>
+    <p class="hint" data-i18n="navHint">✨ Watch the robot navigate around obstacles ✨</p>
   </div>
 
   <div id="nav-canvas"></div>
@@ -75,24 +59,15 @@
 
 <!-- Artifact Collection Challenge Animation -->
 <section class="project-hero">
-  <h1>🏺 Artifact Collection Challenge</h1>
-  <p>Watch our robot collect and transport archaeological artifacts</p>
+  <h1 data-i18n="artifactChallenge">🏺 Artifact Collection Challenge</h1>
+  <p data-i18n="artifactSubtitle">Watch our robot collect and transport archaeological artifacts</p>
 </section>
 
 <section class="project-section">
   <div class="project-text">
-    <h2>⛏️ Mission Simulation</h2>
-    <p>
-      In the UNEARTHED™ challenge, our robot must carefully collect artifacts from
-      various locations on the field and transport them to designated zones. This
-      requires precise positioning, gentle handling, and strategic planning.
-    </p>
-    <p>
-      This animation demonstrates one of our key missions: collecting artifacts and
-      delivering them to the museum zone. Watch as the robot navigates the field,
-      picks up artifacts, and scores points by placing them in the correct location.
-    </p>
-    <p class="hint">✨ Watch the robot complete the challenge autonomously ✨</p>
+    <h2 data-i18n="missionSimulation">⛏️ Mission Simulation</h2>
+    <p data-i18n="missionText"></p>
+    <p class="hint" data-i18n="missionHint">✨ Watch the robot complete the challenge autonomously ✨</p>
   </div>
 
   <div id="challenge-canvas"></div>
@@ -107,42 +82,26 @@
     <div class="challenge-grid">
       <div class="challenge-card">
         <div class="challenge-icon">🔬</div>
-        <h3>The Challenge</h3>
-        <p>
-          UNEARTHED™ is the 2025-26 FLL Challenge theme, where we explore how tools,
-          innovations, and works of art connect us to people and ideas from history.
-          Inspired by archaeology, we investigate historical problems and apply modern
-          STEM solutions.
-        </p>
+        <h3 data-i18n="challenge">The Challenge</h3>
+        <p data-i18n="challengeText"></p>
       </div>
 
       <div class="challenge-card">
         <div class="challenge-icon">🤖</div>
-        <h3>Robot Game</h3>
-        <p>
-          Our autonomous LEGO robot completes ~15 missions on a themed field, each tied
-          to archaeological tasks. We design, build, and program using SPIKE™ Prime to
-          score maximum points through strategic engineering and precise coding.
-        </p>
+        <h3 data-i18n="robotGameProject">Robot Game</h3>
+        <p data-i18n="robotGameProjectText"></p>
       </div>
 
       <div class="challenge-card">
         <div class="challenge-icon">💡</div>
-        <h3>Innovation Project</h3>
-        <p>
-          We research real problems related to archaeology and historical discovery,
-          define challenges, investigate solutions, and create innovative approaches
-          that bridge ancient wisdom with modern technology.
-        </p>
+        <h3 data-i18n="innovationProjectSection">Innovation Project</h3>
+        <p data-i18n="innovationProjectText"></p>
       </div>
 
       <div class="challenge-card">
         <div class="challenge-icon">⚙️</div>
-        <h3>Robot Design</h3>
-        <p>
-          We explain our robot's design choices, programming approaches, and mission
-          strategies to judges, showcasing our engineering process and decision-making.
-        </p>
+        <h3 data-i18n="robotDesign">Robot Design</h3>
+        <p data-i18n="robotDesignText"></p>
       </div>
 
       <div class="challenge-card">
@@ -197,6 +156,7 @@
   </div>
 </section>
 
+<script src="assets/js/language.js"></script>
 <script src="assets/js/lidar.js"></script>
 <script src="assets/js/navigation.js"></script>
 <script src="assets/js/challenge.js"></script>
