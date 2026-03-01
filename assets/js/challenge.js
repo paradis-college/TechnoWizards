@@ -14,23 +14,10 @@ p.setup = () => {
   const canvas = p.createCanvas(400, 320);
   canvas.parent("challenge-canvas");
 
-  // Initialize robot
-  challengeBot = {
-    x: 40,
-    y: 280,
-    angle: 0,
-    targetX: 40,
-    targetY: 280,
-    speed: 2,
-    armExtended: false,
-    armAngle: 0,
-    carrying: null
-  };
-
-  // Start zone (home base)
+  // Start zone (home base) now in upper-left corner
   startZone = {
     x: 24,
-    y: 264,
+    y: 24,
     w: 48,
     h: 48
   };
@@ -44,12 +31,50 @@ p.setup = () => {
     artifacts: []
   };
 
-  // Create artifacts to collect
-  artifacts = [
-    { x: 120, y: 80, collected: false, scored: false, type: '🏺', name: 'Vase' },
-    { x: 240, y: 160, collected: false, scored: false, type: '🗿', name: 'Statue' },
-    { x: 160, y: 240, collected: false, scored: false, type: '📿', name: 'Jewelry' }
+  // Initialize robot
+  challengeBot = {
+    x: startZone.x + startZone.w / 2,
+    y: startZone.y + startZone.h / 2,
+    angle: 0,
+    targetX: startZone.x + startZone.w / 2,
+    targetY: startZone.y + startZone.h / 2,
+    speed: 2,
+    armExtended: false,
+    armAngle: 0,
+    carrying: null
+  };
+
+  // Create artifacts to collect at random locations (avoid start and museum zones)
+  function randomPositionAvoidZones() {
+    let x, y, safe;
+    do {
+      x = p.random(48, p.width - 48);
+      y = p.random(48, p.height - 48);
+      safe = true;
+
+      // simple bounding checks against zones
+      if (x > startZone.x && x < startZone.x + startZone.w &&
+          y > startZone.y && y < startZone.y + startZone.h) {
+        safe = false;
+      }
+      if (x > museumZone.x && x < museumZone.x + museumZone.w &&
+          y > museumZone.y && y < museumZone.y + museumZone.h) {
+        safe = false;
+      }
+    } while (!safe);
+    return { x, y };
+  }
+
+  artifacts = [];
+  const types = [
+    { type: '🏺', name: 'Vase' },
+    { type: '🗿', name: 'Statue' },
+    { type: '📿', name: 'Jewelry' }
   ];
+  types.forEach(t => {
+    const pos = randomPositionAvoidZones();
+    artifacts.push({ x: pos.x, y: pos.y, collected: false, scored: false, type: t.type, name: t.name });
+  });
 
   // Field grid lines
   for (let i = 0; i <= 4; i++) {
@@ -254,7 +279,8 @@ function moveToTarget() {
   let distance = p.sqrt(dx * dx + dy * dy);
 
   if (distance > 1) {
-    challengeBot.angle = p.atan2(dy, dx);
+    // flip the visual heading so the robot appears to face the opposite direction
+    challengeBot.angle = p.atan2(dy, dx) + p.PI;
     challengeBot.x += (dx / distance) * challengeBot.speed;
     challengeBot.y += (dy / distance) * challengeBot.speed;
   }
@@ -360,10 +386,35 @@ function drawMissionInfo() {
 }
 
 function resetMission() {
-  // Reset all artifacts
-  artifacts.forEach(artifact => {
-    artifact.collected = false;
-    artifact.scored = false;
+  // Reset all artifacts and randomize their positions again
+  function randomPositionAvoidZones() {
+    let x, y, safe;
+    do {
+      x = p.random(48, p.width - 48);
+      y = p.random(48, p.height - 48);
+      safe = true;
+
+      if (x > startZone.x && x < startZone.x + startZone.w &&
+          y > startZone.y && y < startZone.y + startZone.h) {
+        safe = false;
+      }
+      if (x > museumZone.x && x < museumZone.x + museumZone.w &&
+          y > museumZone.y && y < museumZone.y + museumZone.h) {
+        safe = false;
+      }
+    } while (!safe);
+    return { x, y };
+  }
+
+  const types = [
+    { type: '🏺', name: 'Vase' },
+    { type: '🗿', name: 'Statue' },
+    { type: '📿', name: 'Jewelry' }
+  ];
+  artifacts = [];
+  types.forEach(t => {
+    const pos = randomPositionAvoidZones();
+    artifacts.push({ x: pos.x, y: pos.y, collected: false, scored: false, type: t.type, name: t.name });
   });
 
   // Reset museum
